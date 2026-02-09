@@ -1,0 +1,120 @@
+\documentclass[11pt, letterpaper]{article}
+\usepackage[margin=0.75in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\small\textcolor{gray}{Desk Instruction --- Git Workflow for Reviewers}}
+\lhead{\small\textcolor{gray}{DI-GIT-001}}
+\rfoot{\small\textcolor{gray}{Page \thepage}}
+
+\hypersetup{colorlinks=true, linkcolor=blue!70!black, urlcolor=blue!70!black}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Git Workflow for Reviewers}\\[4pt]
+{\large Desk Instruction DI-GIT-001}\\[4pt]
+{\small Version 1.0 \quad|\quad \today}
+\end{center}
+
+\vspace{-6pt}
+\noindent\rule{\textwidth}{0.5pt}
+
+\textbf{Purpose:} This one-page instruction explains how to review, comment on, and approve changes using your web browser. No software installation required.
+
+\section*{The 5-Step Review Workflow}
+
+\begin{center}
+\fbox{\textbf{1. Open URL}} $\rightarrow$
+\fbox{\textbf{2. Browse Files}} $\rightarrow$
+\fbox{\textbf{3. View Changes}} $\rightarrow$
+\fbox{\textbf{4. Comment}} $\rightarrow$
+\fbox{\textbf{5. Approve}}
+\end{center}
+
+\section*{Step-by-Step Instructions}
+
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item \textbf{Open the project URL} in your browser (Chrome, Edge, Firefox, Safari).
+    \begin{itemize}[leftmargin=*, itemsep=0pt]
+        \item You will receive the URL by email or message from the project team.
+        \item Bookmark it for easy access.
+    \end{itemize}
+
+    \item \textbf{Browse files.} The project landing page shows all files. Click any file to see its contents. Click folders to navigate.
+
+    \item \textbf{View changes.} When someone proposes a change:
+    \begin{itemize}[leftmargin=*, itemsep=0pt]
+        \item You will receive an email notification with a link.
+        \item Click the link to open the \textbf{Merge Request} (GitLab) or \textbf{Pull Request} (GitHub).
+        \item Click the \textbf{``Changes''} tab to see the diff.
+        \item \textbf{Choose your view:} \textit{Inline} shows old and new together; \textit{Side-by-side} shows old on the left, new on the right. Toggle this with the button at the top of the Changes tab. Side-by-side is often easier to read for large changes.
+        \item \textcolor{green!50!black}{\textbf{Green lines}} = text that was \textbf{added}.
+        \item \textcolor{red!70!black}{\textbf{Red lines}} = text that was \textbf{removed}.
+        \item Unchanged text is shown in gray for context.
+    \end{itemize}
+
+    \item \textbf{Leave a comment.} Click on any line in the diff to leave a comment. Ask questions, request changes, or note concerns. All comments are saved permanently.
+
+    \item \textbf{Approve.} When you are satisfied with the changes, click the \textbf{``Approve''} button. Once all required reviewers approve, the changes are merged into the official version.
+\end{enumerate}
+
+\section*{Viewing History}
+
+To see previous versions of any file:
+\begin{enumerate}[leftmargin=*, itemsep=2pt]
+    \item Open the file in your browser.
+    \item Click \textbf{``History''} (GitHub) or \textbf{``History''} (GitLab) in the top-right area.
+    \item Each entry shows: \textit{who} changed it, \textit{when}, and a \textit{summary} of what changed.
+    \item Click any entry to see the exact changes made at that point.
+\end{enumerate}
+
+\section*{Key Rules (Enforced Automatically)}
+
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{Rule} & \textbf{What it means} \\
+\midrule
+No direct changes to main & All changes must go through a Merge/Pull Request \\
+Required approvers & Changes cannot be merged until designated reviewers approve \\
+Author cannot self-approve & The person who made the change cannot approve their own change \\
+Stale approval reset & If changes are made after approval, reviewers must re-approve \\
+\bottomrule
+\end{tabularx}
+
+\vspace{6pt}
+
+\section*{Quick Reference}
+
+\begin{tabularx}{\textwidth}{lX}
+\toprule
+\textbf{I want to\ldots} & \textbf{Do this} \\
+\midrule
+See what changed & Open the Merge Request $\rightarrow$ click ``Changes'' tab \\
+Ask a question & Click on a line in the diff $\rightarrow$ type your comment \\
+Approve changes & Click ``Approve'' button on the Merge Request \\
+See all versions & Open a file $\rightarrow$ click ``History'' \\
+Compare two versions & Open History $\rightarrow$ click any entry to see that diff \\
+\bottomrule
+\end{tabularx}
+
+\vspace{6pt}
+\noindent\rule{\textwidth}{0.5pt}
+\begin{center}
+\small\textcolor{gray}{Questions? Contact the project team. All actions are logged for compliance (NIST SP 800-53 CM-3, AC-5, AU-3).}
+\end{center}
+
+\end{document}
