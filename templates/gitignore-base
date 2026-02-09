@@ -1,6 +1,7 @@
 # =============================================================================
 # Base .gitignore Template
 # Source: https://github.com/brucedombrowski/systems-engineering
+# Derived from: https://github.com/brucedombrowski/security-toolkit
 # =============================================================================
 # Copy this file to your project as .gitignore and add project-specific
 # entries below the "Project-Specific" section.
@@ -24,7 +25,7 @@ Desktop.ini
 *.sublime-project
 *.sublime-workspace
 
-# --- Secrets & Credentials (CRITICAL) ---
+# --- Secrets & Credentials (CRITICAL — never commit) ---
 .env
 .env.*
 *.key
@@ -39,9 +40,8 @@ credentials.*
 *.credential
 api_key*
 apikey*
-.aws/
 
-# --- SSH / GPG Keys ---
+# --- SSH Keys ---
 id_rsa*
 id_ed25519*
 id_ecdsa*
@@ -49,10 +49,44 @@ id_dsa*
 *.pub
 known_hosts
 authorized_keys
+
+# --- GPG Keys ---
 *.gpg
 *.asc
 secring.*
 pubring.*
+
+# --- AWS Credentials ---
+.aws/
+aws_access_key*
+aws_secret*
+
+# --- Controlled Unclassified Information (CUI) ---
+CUI*.*
+*CUI*
+*-CUI-*
+
+# --- Personally Identifiable Information (PII) ---
+PII*.*
+*PII*
+*-PII-*
+
+# --- Security Scan Results ---
+.scans/
+*-Scan-Results.md
+.allowlists/
+.assessments/
+.verification/
+
+# --- Vulnerability Scan Outputs (SENSITIVE) ---
+nmap-*.txt
+nmap-*.xml
+lynis-*.txt
+lynis-*.dat
+openvas-*.xml
+vulnerability-scan-*.txt
+host-inventory*.txt
+*-inventory-*.txt
 
 # --- Log Files ---
 *.log
@@ -63,23 +97,23 @@ logs/
 *.dump
 *.bak
 
-# --- Security Scan Results ---
-.scans/
-*-Scan-Results.md
-
-# --- Claude Code ---
-.claude/
-
 # --- Temporary Files ---
 *.tmp
 *.temp
 ~$*
 
+# --- Claude Code ---
+.claude/
+
+# --- Cache ---
+.cache/
+
 # =============================================================================
 # Project-Specific (add entries below for your project type)
 # =============================================================================
-# LaTeX:    *.aux, *.bbl, *.blg, *.out, *.toc, *.fls, *.fdb_latexmk, *.synctex.gz
-# Node.js:  node_modules/, dist/, .next/
-# Python:   __pycache__/, *.pyc, .venv/, .eggs/
+# LaTeX:      *.aux, *.bbl, *.blg, *.out, *.toc, *.fls, *.fdb_latexmk,
+#             *.synctex.gz, *.nav, *.snm, *.vrb, *.bcf, *.run.xml
+# Node.js:    node_modules/, dist/, .next/
+# Python:     __pycache__/, *.pyc, .venv/, .eggs/
 # PowerShell: *.Locked, *_Test_*/
-# Bash:     .builds/, .dist/
+# Bash:       .builds/, .dist/
