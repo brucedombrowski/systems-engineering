@@ -1,0 +1,85 @@
+# =============================================================================
+# Base .gitignore Template
+# Source: https://github.com/brucedombrowski/systems-engineering
+# =============================================================================
+# Copy this file to your project as .gitignore and add project-specific
+# entries below the "Project-Specific" section.
+# =============================================================================
+
+# --- OS Files ---
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# --- Editor / IDE Files ---
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# --- Secrets & Credentials (CRITICAL) ---
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+*.crt
+*.cer
+*.secrets
+secrets.*
+credentials.*
+*.credential
+api_key*
+apikey*
+.aws/
+
+# --- SSH / GPG Keys ---
+id_rsa*
+id_ed25519*
+id_ecdsa*
+id_dsa*
+*.pub
+known_hosts
+authorized_keys
+*.gpg
+*.asc
+secring.*
+pubring.*
+
+# --- Log Files ---
+*.log
+logs/
+
+# --- Database Dumps ---
+*.sql
+*.dump
+*.bak
+
+# --- Security Scan Results ---
+.scans/
+*-Scan-Results.md
+
+# --- Claude Code ---
+.claude/
+
+# --- Temporary Files ---
+*.tmp
+*.temp
+~$*
+
+# =============================================================================
+# Project-Specific (add entries below for your project type)
+# =============================================================================
+# LaTeX:    *.aux, *.bbl, *.blg, *.out, *.toc, *.fls, *.fdb_latexmk, *.synctex.gz
+# Node.js:  node_modules/, dist/, .next/
+# Python:   __pycache__/, *.pyc, .venv/, .eggs/
+# PowerShell: *.Locked, *_Test_*/
+# Bash:     .builds/, .dist/
