@@ -79,3 +79,26 @@ gh issue list --label decision
 ## Agent Role
 
 **All agents** — every agent logs interactions. **Project Setup Agent** maintains versioning infrastructure.
+
+## Shared-infrastructure backport rule
+
+When an agent makes a project-agnostic improvement to a file that originates from a shared-infrastructure repo (e.g. `launch.bat` from `LaunchBat/`, `.gitignore` patterns from `templates/gitignore-base`, the headless smoke-test from `templates/headless-html-smoke-test.md`, etc.), the agent **SHALL** open an issue on the upstream shared-infrastructure repo proposing the backport.
+
+Issue contents:
+
+- Title prefix `[enhancement]` or `[bug]`
+- One-line motivation: what failure mode the change avoids, or what UX it improves
+- The full code snippet from the consumer project, ready to cherry-pick
+- Gotchas (cmd `%var%` vs `!var!`, encoding traps, etc.)
+- Pairings / ordering hints (which other backports it depends on)
+- Backport source: commit SHA + project name
+
+Rationale:
+
+- Avoids divergence drift across the consumer projects — improvements made in one cascade to all.
+- Captures the institutional knowledge of *why* a particular line is in the launcher / template, which would otherwise live only in one project's commit history.
+- Lets the upstream maintainer evaluate the change once, then propagate.
+
+Example: KuIP_Analyzer issues `LaunchBat#20–#23` (self-tee, UTF-8 forcing, auto-recover from divergent history, detached app launch) were filed when the corresponding patterns shipped in the consumer project.
+
+If an agent isn't sure whether a change is project-agnostic or project-specific, file the issue anyway and let the upstream maintainer decide. The cost of an extra issue is low; the cost of silent divergence is high.
